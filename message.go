@@ -22,20 +22,20 @@ var (
 // Notification specifies the predefined, user-visible key-value pairs of the
 // notification payload.
 type Notification struct {
-	Title        string `json:"title,omitempty"`
-	Body         string `json:"body,omitempty"`
-	ChannelID    string `json:"android_channel_id,omitempty"`
-	Icon         string `json:"icon,omitempty"`
-	Image        string `json:"image,omitempty"`
-	Sound        string `json:"sound,omitempty"`
-	Badge        string `json:"badge,omitempty"`
-	Tag          string `json:"tag,omitempty"`
-	Color        string `json:"color,omitempty"`
-	ClickAction  string `json:"click_action,omitempty"`
-	BodyLocKey   string `json:"body_loc_key,omitempty"`
-	BodyLocArgs  string `json:"body_loc_args,omitempty"`
-	TitleLocKey  string `json:"title_loc_key,omitempty"`
-	TitleLocArgs string `json:"title_loc_args,omitempty"`
+	Title        string   `json:"title,omitempty"`
+	Body         string   `json:"body,omitempty"`
+	ChannelID    string   `json:"android_channel_id,omitempty"`
+	Icon         string   `json:"icon,omitempty"`
+	Image        string   `json:"image,omitempty"`
+	Sound        string   `json:"sound,omitempty"`
+	Badge        string   `json:"badge,omitempty"`
+	Tag          string   `json:"tag,omitempty"`
+	Color        string   `json:"color,omitempty"`
+	ClickAction  string   `json:"click_action,omitempty"`
+	BodyLocKey   string   `json:"body_loc_key,omitempty"`
+	BodyLocArgs  []string `json:"body_loc_args,omitempty"`
+	TitleLocKey  string   `json:"title_loc_key,omitempty"`
+	TitleLocArgs []string `json:"title_loc_args,omitempty"`
 }
 
 // Message represents list of targets, options, and payload for HTTP JSON
@@ -54,7 +54,7 @@ type Message struct {
 	DryRun                   bool                   `json:"dry_run,omitempty"`
 	RestrictedPackageName    string                 `json:"restricted_package_name,omitempty"`
 	Notification             *Notification          `json:"notification,omitempty"`
-	Data                     map[string]interface{} `json:"data,omitempty"`
+	Data                     interface{}            `json:"data,omitempty"`
 	Apns                     map[string]interface{} `json:"apns,omitempty"`
 	Webpush                  map[string]interface{} `json:"webpush,omitempty"`
 }
